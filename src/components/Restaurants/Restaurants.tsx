@@ -1,9 +1,14 @@
 import React from 'react';
+import { RestaurantsData } from '@types';
 
-export default function Restaurants({ restaurants }: any) {
+interface RestaurantProps {
+  restaurants: RestaurantsData;
+}
+
+export default function Restaurants({ restaurants }: RestaurantProps) {
   return (
     <ul>
-      {restaurants.map((restaurant: any) => (
+      {restaurants.restaurants.map((restaurant: RestaurantsData) => (
         <li key={restaurant.id}>
           {restaurant.name}|{restaurant.category}|{restaurant.address}
         </li>
