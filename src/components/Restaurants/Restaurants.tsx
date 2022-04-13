@@ -5,14 +5,16 @@ interface RestaurantProps {
   restaurants: RestaurantsData;
 }
 
-export default function Restaurants({ restaurants }: RestaurantProps) {
+export const Restaurants = ({ restaurants }: RestaurantProps) => {
   return (
     <ul>
-      {restaurants.restaurants.map((restaurant: RestaurantsData) => (
+      {restaurants.map((restaurant: RestaurantsData) => (
         <li key={restaurant.id}>
           {restaurant.name}|{restaurant.category}|{restaurant.address}
         </li>
       ))}
     </ul>
   );
-}
+};
+
+export default Restaurants;

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Restaurants } from '@components';
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from '@hooks';
 
-export default function RestaurantsContainer() {
-  const { restaurants } = useSelector((state) => ({
+export const RestaurantsContainer = () => {
+  const { restaurants } = useTypedSelector((state) => ({
     restaurants: state.restaurants,
   }));
 
-  return <Restaurants restaurants={restaurants} />;
-}
+  return <Restaurants restaurants={restaurants.restaurants} />;
+};
+
+export default RestaurantsContainer;
