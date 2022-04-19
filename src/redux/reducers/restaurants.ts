@@ -6,6 +6,7 @@ const initialState = {
   newId: 100,
   restaurants: [],
   restaurant: initialRestaurant,
+  categories: [],
 };
 
 export const restaurantsReducer = (state = initialState, { type, payload }: Action) => {
@@ -36,6 +37,14 @@ export const restaurantsReducer = (state = initialState, { type, payload }: Acti
         restaurant: initialRestaurant,
       };
     }
+    case ActionType.SET_CATEGORIES: {
+      const { categories } = payload;
+      return {
+        ...state,
+        categories,
+      };
+    }
+
     default:
       return state;
   }
