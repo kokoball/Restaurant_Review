@@ -11,7 +11,6 @@ export interface category {
 }
 
 export const Categories = ({ categories }: CategoriesProps) => {
-  console.log(typeof categories, 123);
   return (
     <ul>
       {categories.map((category: category) => (
