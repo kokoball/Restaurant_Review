@@ -1,13 +1,23 @@
 import React, { useEffect } from 'react';
-import { CategoriesContainer, RestaurantsContainer, RestaurantCreateContainer } from '@components';
+import {
+  RegionsContainer,
+  CategoriesContainer,
+  RestaurantsContainer,
+  RestaurantCreateContainer,
+} from '@components';
 import { useDispatch } from 'react-redux';
 import restaurants from 'fixtures/restaurants';
-import { loadRestaurants, loadCategories } from '@redux/actions/restaurantsActions';
+import {
+  loadInitialData,
+  loadRestaurants,
+  loadCategories,
+} from '@redux/actions/restaurantsActions';
 
 export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(loadInitialData());
     dispatch(loadCategories());
     dispatch(loadRestaurants());
   }, []);
@@ -15,6 +25,7 @@ export const App = () => {
   return (
     <div>
       <h1>Restaurants</h1>
+      <RegionsContainer />
       <CategoriesContainer />
       <RestaurantsContainer />
       <RestaurantCreateContainer />
