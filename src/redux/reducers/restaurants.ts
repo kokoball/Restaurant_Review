@@ -44,6 +44,13 @@ export const restaurantsReducer = (state = initialState, { type, payload }: Acti
         categories,
       };
     }
+    case ActionType.SET_REGIONS: {
+      const { regions } = payload;
+      return {
+        ...state,
+        regions,
+      };
+    }
 
     default:
       return state;
